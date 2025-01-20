@@ -7,12 +7,21 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct HomeViewModel: View {
+    var couloums = [GridItem(.adaptive(minimum: 160), spacing: 20)]
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView{
+            ScrollView{
+                LazyVGrid(columns: couloums){
+                    ForEach(ProductList, id: \.id){ product in
+                        ProductCard(product: product)
+                    }
+                }
+            }
+        }
     }
 }
 
 #Preview {
-    HomeView()
+    HomeViewModel()
 }

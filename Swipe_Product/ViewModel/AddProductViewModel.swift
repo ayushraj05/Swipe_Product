@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct AddProduct: View {
+struct AddProductViewModel: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Add New Product")
     }
 }
 
 #Preview {
-    AddProduct()
+    AddProductViewModel()
 }
