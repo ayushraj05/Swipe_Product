@@ -19,12 +19,13 @@ struct ProductCard: View {
                     .cornerRadius(20)
                     .frame(width: 180)
                     .scaledToFit()
+                    .frame(width: 180, height: 250)
                 
                 VStack(alignment: .leading) {
                     Text(product.product_name)
                         .bold()
                     
-                    Text("\(product.price)$")
+                    Text("\(product.price) $")
                         .font(.caption)
                 }
                 .padding()
