@@ -36,9 +36,9 @@ struct ProductCard: View {
             .shadow(radius: 3)
             
             Button {
-                // add to wish list
+                print("Added to wishlist")
             } label: {
-                Image(systemName: "plus")
+                Image(systemName: "heart")
                     .padding(10)
                     .foregroundColor(.white)
                     .background(.black)

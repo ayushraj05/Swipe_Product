@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeViewModel: View {
+struct HomeView: View {
     var couloums = [GridItem(.adaptive(minimum: 160), spacing: 20)]
     var body: some View {
         NavigationView{
@@ -23,5 +23,5 @@ struct HomeViewModel: View {
 }
 
 #Preview {
-    HomeViewModel()
+    HomeView()
 }
