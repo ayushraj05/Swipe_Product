@@ -50,9 +50,9 @@ struct ProductCard: View {
     }
 }
 
-struct ProductCard_Previews: PreviewProvider {
-    static var previews: some View {
-        ProductCard(product: ProductList[0])
-//            .environmentObject()
-    }
-}
+//struct ProductCard_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProductCard(product: ProductList[0])
+////            .environmentObject()
+//    }
+//}

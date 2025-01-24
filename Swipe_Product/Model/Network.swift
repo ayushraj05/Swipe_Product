@@ -7,26 +7,23 @@
 
 import Foundation
 
-protocol NetworkProtocol: AnyObject{
-    func UpdateProducts(_ products: [Product])
-    func didFailWithError(error: Error)
-}
-
-class Network{
+class Network {
     let urlString = "https://app.getswipe.in/api/public/get"
-    var delegate: NetworkProtocol?
     
-    func getData(){
+    func fetchProducts(completion: @escaping (Result<[Product], Error>) -> Void){
         if let url = URL(string: urlString){
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: url) { data, response, error in
                 if let error{
-                    self.delegate?.didFailWithError(error: error)
+                    completion(.failure(error))
                 }
                 if let safeData = data{
                     if let productData = self.parseData(safeData){
-                        self.delegate?.UpdateProducts(productData)
+                        completion(.success(productData))
                     }
+                }
+                else{
+                    completion(.failure(NSError(domain: "No data", code: 0, userInfo: nil)))
                 }
             }
             task.resume()
@@ -39,7 +36,6 @@ class Network{
             let products = try decoder.decode([Product].self, from: data)
             return products.self
         }catch{
-            delegate?.didFailWithError(error: error)
             return nil
         }
     }
